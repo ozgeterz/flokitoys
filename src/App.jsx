@@ -36,6 +36,10 @@ function App() {
       cleaned = cleaned.slice(2);
     }
 
+    if (cleaned.startsWith("0")) {
+      cleaned = cleaned.slice(1);
+    }
+
     if (cleaned.length === 0) {
       return "+90 ";
     } else if (cleaned.length <= 3) {
@@ -135,8 +139,8 @@ function App() {
       className="min-h-screen bg-white w-[390px] mx-auto"
       onClick={handlePageClick}
     >
-      <div className="px-4 py-6 bg-gradient-to-b from-sky-50 to-sky-100">
-        <div className="bg-white rounded-2xl p-4 shadow-lg border-2 border-sky-200">
+      <div className="bg-gradient-to-b from-sky-50 to-sky-100">
+        <div className="bg-white p-4 shadow-[inset_0_2px_10px_rgba(0,0,0,0.1)]">
           <img
             src={productBanner}
             alt="Dijital Yağ Su Kas Vücut Kitle Endeksi Ölçer Tartı"
@@ -170,15 +174,20 @@ function App() {
               <label className="block text-gray-700 text-sm font-medium mb-1">
                 Telefon
               </label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                required
-                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-sky-400"
-                placeholder="+90 5XX XXX XX XX"
-              />
+              <div className="flex items-center w-full border-2 border-gray-200 rounded-xl overflow-hidden focus-within:border-sky-400">
+                <span className="bg-gray-100 px-4 py-3 text-gray-600 font-medium select-none">
+                  +90
+                </span>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone.replace("+90 ", "")}
+                  onChange={handleInputChange}
+                  required
+                  className="flex-1 px-2 py-3 text-gray-800 focus:outline-none"
+                  placeholder="5XX XXX XX XX"
+                />
+              </div>
             </div>
 
             <div>
@@ -335,7 +344,9 @@ function App() {
                     className="hidden"
                   />
                   <span className="text-xl">💵</span>
-                  <span className="font-medium text-gray-800">Nakit</span>
+                  <span className="font-medium text-gray-800">
+                    Kapıda Nakit
+                  </span>
                 </label>
                 <label
                   className={`flex items-center justify-center gap-2 p-3 rounded-xl border-2 cursor-pointer ${
@@ -353,12 +364,9 @@ function App() {
                     className="hidden"
                   />
                   <span className="text-xl">💳</span>
-                  <span className="font-medium text-gray-800">Kart</span>
+                  <span className="font-medium text-gray-800">Kapıda Kart</span>
                 </label>
               </div>
-              <p className="text-gray-500 text-xs mt-2 text-center">
-                * Kapıda ödeme yapılacaktır
-              </p>
             </div>
 
             <div className="bg-gray-50 rounded-xl p-3 mt-4">
