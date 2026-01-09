@@ -1,4 +1,11 @@
+import { useEffect } from "react";
+import { trackPurchase } from "../utils/fbPixel";
+
 function ThankYou() {
+  useEffect(() => {
+    trackPurchase();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-4">
       <div className="text-center">
