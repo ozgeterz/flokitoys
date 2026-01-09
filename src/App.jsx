@@ -20,7 +20,7 @@ function App() {
     if (formRef.current) {
       const elementPosition = formRef.current.getBoundingClientRect().top;
       const offsetPosition =
-        elementPosition + window.pageYOffset - window.innerHeight / 2 + 300;
+        elementPosition + window.pageYOffset - window.innerHeight / 2 + 270;
 
       window.scrollTo({
         top: offsetPosition,
