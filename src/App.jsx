@@ -20,7 +20,7 @@ function App() {
     if (formRef.current) {
       const elementPosition = formRef.current.getBoundingClientRect().top;
       const offsetPosition =
-        elementPosition + window.pageYOffset - window.innerHeight / 2 + 400;
+        elementPosition + window.pageYOffset - window.innerHeight / 2 + 300;
 
       window.scrollTo({
         top: offsetPosition,
@@ -146,7 +146,11 @@ function App() {
             🛒 SİPARİŞ FORMU
           </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div ref={formRef}>
               <label className="block text-gray-700 text-sm font-medium mb-1">
                 Ad Soyad
