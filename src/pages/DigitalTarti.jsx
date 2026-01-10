@@ -127,7 +127,7 @@ function DigitalTarti() {
 
   return (
     <div
-      className="min-h-screen bg-white w-[390px] mx-auto"
+      className="min-h-screen bg-white w-full max-w-[390px] mx-auto"
       onClick={handlePageClick}
     >
       <div className="bg-gradient-to-b from-sky-50 to-sky-100">
