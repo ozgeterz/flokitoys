@@ -7,7 +7,7 @@ function ThankYou() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+    <div className="min-h-screen bg-white flex items-center justify-center">
       <div className="text-center">
         <div className="text-6xl mb-4">✅</div>
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
