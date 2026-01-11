@@ -135,11 +135,11 @@ function DigitalTarti() {
       console.error("Google Forms gönderim hatası:", err);
     });
 
-    navigate("/tesekkurler");
+    navigate("/tesekkurler?product=comedones");
   };
 
   if (orderSuccess) {
-    navigate("/tesekkurler");
+    navigate("/tesekkurler?product=comedones");
     return null;
   }
 

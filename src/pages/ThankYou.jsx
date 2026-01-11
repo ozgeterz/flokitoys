@@ -1,9 +1,11 @@
 import { useEffect } from "react";
-import { trackPurchase } from "../utils/fbPixel";
-import { useNavigate } from "react-router-dom";
+import { trackPurchase, initPixel, trackPageView } from "../utils/fbPixel";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function ThankYou() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const product = searchParams.get("product");
 
   useEffect(() => {
     document.title = "Siparişiniz Alındı - Teşekkürler";
@@ -15,7 +17,16 @@ function ThankYou() {
       );
     }
 
-    trackPurchase();
+    const pixelId =
+      product === "shaver"
+        ? import.meta.env.VITE_FB_PIXEL_ID_SHAVER
+        : import.meta.env.VITE_FB_PIXEL_ID_COMEDONES;
+
+    if (pixelId) {
+      initPixel(pixelId);
+      trackPageView();
+      trackPurchase();
+    }
 
     const timer = setTimeout(() => {
       navigate("/");

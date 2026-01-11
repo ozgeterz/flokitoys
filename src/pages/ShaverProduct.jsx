@@ -148,7 +148,7 @@ function ShaverProduct() {
       console.error("Google Forms submission error:", err);
     });
 
-    navigate("/tesekkurler");
+    navigate("/tesekkurler?product=shaver");
   };
 
   return (
