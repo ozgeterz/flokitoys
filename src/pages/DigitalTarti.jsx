@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import productBanner from "../assets/product-banner.jpg";
 import { turkishCitiesAndDistricts } from "../data/turkishCities";
-import { initPixel } from "../utils/fbPixel";
+import { initPixel, trackPageView } from "../utils/fbPixel";
 
 function DigitalTarti() {
   const navigate = useNavigate();
@@ -32,6 +32,7 @@ function DigitalTarti() {
     const pixelId = import.meta.env.VITE_FB_PIXEL_ID_COMEDONES;
     if (pixelId) {
       initPixel(pixelId);
+      trackPageView();
     }
   }, []);
 

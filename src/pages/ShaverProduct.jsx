@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { turkishCitiesAndDistricts } from "../data/turkishCities";
-import { initPixel } from "../utils/fbPixel";
+import { initPixel, trackPageView } from "../utils/fbPixel";
 import furyah1 from "../assets/furyah1.jpg";
 import furyah2 from "../assets/furyah2.jpg";
 import furyah3 from "../assets/furyah3.jpg";
@@ -37,6 +37,7 @@ function ShaverProduct() {
     const pixelId = import.meta.env.VITE_FB_PIXEL_ID_SHAVER;
     if (pixelId) {
       initPixel(pixelId);
+      trackPageView();
     }
   }, []);
 
