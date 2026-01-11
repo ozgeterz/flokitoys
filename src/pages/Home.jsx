@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import comedones from "../assets/comedones.jpg";
 import furyah from "../assets/furyah.jpg";
 
 function Home() {
+  useEffect(() => {
+    document.title = "Kaliteli Ürünler - Uygun Fiyatlar";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        "Dijital tartı ve tıraş makinesi ürünlerimizi keşfedin. Kapıda ödeme imkanı ile güvenli alışveriş."
+      );
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 w-full max-w-[390px] mx-auto">
       {/* Header */}

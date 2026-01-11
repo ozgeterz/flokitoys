@@ -1,3 +1,9 @@
+export const initPixel = (pixelId) => {
+  if (typeof window !== "undefined" && window.fbq) {
+    window.fbq("init", pixelId);
+  }
+};
+
 export const trackEvent = (eventName, data = {}) => {
   if (typeof window !== "undefined" && window.fbq) {
     window.fbq("track", eventName, data);

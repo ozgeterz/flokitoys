@@ -1,8 +1,20 @@
 import { useEffect } from "react";
 import { trackPurchase } from "../utils/fbPixel";
+import { useNavigate } from "react-router-dom";
 
 function ThankYou() {
+  const navigate = useNavigate();
+
   useEffect(() => {
+    document.title = "Siparişiniz Alındı - Teşekkürler";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        "Siparişiniz başarıyla alındı. En kısa sürede sizinle iletişime geçeceğiz."
+      );
+    }
+
     trackPurchase();
   }, []);
 

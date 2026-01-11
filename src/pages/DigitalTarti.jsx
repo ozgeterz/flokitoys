@@ -1,7 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import productBanner from "../assets/product-banner.jpg";
 import { turkishCitiesAndDistricts } from "../data/turkishCities";
+import { initPixel } from "../utils/fbPixel";
 
 function DigitalTarti() {
   const navigate = useNavigate();
@@ -17,6 +18,22 @@ function DigitalTarti() {
   const [districts, setDistricts] = useState([]);
   const [orderSuccess, setOrderSuccess] = useState(false);
   const formRef = useRef(null);
+
+  useEffect(() => {
+    document.title = "Dijital Vücut Analiz Tartısı - Kapıda Ödeme";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        "Dijital yağ su kas vücut kitle endeksi ölçer tartı. Akıllı vücut analiz baskülü ile sağlığınızı takip edin. Kapıda nakit veya kart ile ödeme imkanı."
+      );
+    }
+
+    const pixelId = import.meta.env.VITE_FB_PIXEL_ID_COMEDONES;
+    if (pixelId) {
+      initPixel(pixelId);
+    }
+  }, []);
 
   const handlePageClick = () => {
     if (formRef.current) {
