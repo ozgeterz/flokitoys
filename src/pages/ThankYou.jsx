@@ -16,7 +16,13 @@ function ThankYou() {
     }
 
     trackPurchase();
-  }, []);
+
+    const timer = setTimeout(() => {
+      navigate("/");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center">
