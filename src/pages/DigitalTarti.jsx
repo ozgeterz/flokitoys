@@ -81,7 +81,7 @@ function DigitalTarti() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const formId = import.meta.env.VITE_GOOGLE_FORM_ID;
+    const formId = import.meta.env.VITE_GOOGLE_FORM_ID_COMEDONES;
     if (!formId) return;
     console.log(formId);
     const baseUrl = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
@@ -403,7 +403,7 @@ function DigitalTarti() {
       </div>
 
       <div className="bg-gray-800 text-white text-center py-4 text-sm">
-        <p>© 2026 Comedones Tartı</p>
+        <p>© 2026</p>
         <p className="text-gray-400 text-xs mt-1">
           Kapıda Nakit veya Kart ile Ödeme
         </p>
